@@ -1,10 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "nSS6+7QOAF2tmk8INzXNRerLdHKUQB/74itni98kDbqVImC1gf9jrVtNyqzUXRh+LHcwIe9m334AEhZyRrDVgw==",
+  "dgSpecHash": "I2F1NVWTwvmQTKue/GICWTFAvhxwcxx84TUWeYcAHiNdO7/MZ15Ef28GkwP6PnzYy5pgFxkbvZIVHC7WXrJkzg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Natalia\\Desktop\\DAW\\LENGUAJE_MARCAS\\PROYECTO_LENGUAJE_MARCAS\\PROYECTO_LENGUAJE_MARCAS\\PROYECTO.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\Natalia\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
-  ],
+  "projectFilePath": "C:\\Users\\Natalia\\Desktop\\PROYECTO_LENGUAJE_MARCAS\\PROYECTO_LENGUAJE_MARCAS.csproj",
+  "expectedPackageFiles": [],
   "logs": []
 }

@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "PROYECTO_LENGUAJE_MARCAS/1.0.0": {
+        "runtime": {
+          "PROYECTO_LENGUAJE_MARCAS.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "PROYECTO_LENGUAJE_MARCAS/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

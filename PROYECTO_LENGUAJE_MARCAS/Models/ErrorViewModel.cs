@@ -1,4 +1,4 @@
-namespace PROYECTO.Models;
+namespace PROYECTO_LENGUAJE_MARCAS.Models;
 
 public class ErrorViewModel
 {

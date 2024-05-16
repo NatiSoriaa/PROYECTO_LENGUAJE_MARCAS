@@ -1,11 +1,14 @@
 ﻿
 using Newtonsoft.Json;
+import idPaises;
+
 
 
 internal partial class Program
 {
     static void Main(string[] args)
     {
+    
         
         List<string> geocode=ConsultInformationCountry("625144");
         

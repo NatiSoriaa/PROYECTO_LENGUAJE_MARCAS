@@ -27,16 +27,17 @@ public class HomeController : Controller
         var informationCountry = JsonSerializer.Deserialize<ApiCountry.Country>(contentCountry);
         
         var countryList = new List<ApiCountry.Country>{informationCountry};
-        double longitude=Convert.ToDouble(countryList[0].lat);
-        double latitude=Convert.ToDouble(countryList[0].lng);
-        double longitude2=-78.63861;
-        double latitude2=35.7721;
+        // double longitude=Convert.ToDouble(countryList[0].lat);
+        // double latitude=Convert.ToDouble(countryList[0].lng);
+        // double longitude2=-78.63861;
+        // double latitude2=35.7721;
 
 
-        var urlApiWeather=$"https://api.weatherbit.io/v2.0/current?lat=78.63861&lon=78.63861&key=b594f4848b42479cb1d61d4283ff8793&include=minutely";
+        var urlApiWeather=$"https://api.weatherbit.io/v2.0/current?lat={countryList[0].lat}&lon={countryList[0].lng}&key=b594f4848b42479cb1d61d4283ff8793&include=minutely";
         var clientWeather= new HttpClient();
         var responseWeather=clientWeather.GetAsync(urlApiWeather).Result;
         var contentWeather=responseWeather.Content.ReadAsStringAsync().Result;
+        
         var informationWeather = JsonSerializer.Deserialize<ApiWeather.Root>(contentWeather);
 
         var listInformationWeather = new List<ApiWeather.Root>{informationWeather};
@@ -44,7 +45,15 @@ public class HomeController : Controller
         
         
         
-        return View(listInformationWeather);
+        if (listInformationWeather != null)
+        {
+            return View(listInformationWeather);
+        }
+        else
+        {
+            return View("no hay datos");
+        }
+
        
         
 

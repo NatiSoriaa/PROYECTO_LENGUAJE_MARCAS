@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Natalia\\Desktop\\DAW\\LENGUAJE_MARCAS\\PROYECTO_LENGUAJE_MARCAS\\PROYECTO_LENGUAJE_MARCAS\\PROYECTO.csproj": {}
+    "C:\\Users\\Nati\\Downloads\\DAW\\PROYECTO_LENGUAJE_MARCAS\\PROYECTO_LENGUAJE_MARCAS\\PROYECTO.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Natalia\\Desktop\\DAW\\LENGUAJE_MARCAS\\PROYECTO_LENGUAJE_MARCAS\\PROYECTO_LENGUAJE_MARCAS\\PROYECTO.csproj": {
+    "C:\\Users\\Nati\\Downloads\\DAW\\PROYECTO_LENGUAJE_MARCAS\\PROYECTO_LENGUAJE_MARCAS\\PROYECTO.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Natalia\\Desktop\\DAW\\LENGUAJE_MARCAS\\PROYECTO_LENGUAJE_MARCAS\\PROYECTO_LENGUAJE_MARCAS\\PROYECTO.csproj",
+        "projectUniqueName": "C:\\Users\\Nati\\Downloads\\DAW\\PROYECTO_LENGUAJE_MARCAS\\PROYECTO_LENGUAJE_MARCAS\\PROYECTO.csproj",
         "projectName": "PROYECTO",
-        "projectPath": "C:\\Users\\Natalia\\Desktop\\DAW\\LENGUAJE_MARCAS\\PROYECTO_LENGUAJE_MARCAS\\PROYECTO_LENGUAJE_MARCAS\\PROYECTO.csproj",
-        "packagesPath": "C:\\Users\\Natalia\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Natalia\\Desktop\\DAW\\LENGUAJE_MARCAS\\PROYECTO_LENGUAJE_MARCAS\\PROYECTO_LENGUAJE_MARCAS\\obj\\",
+        "projectPath": "C:\\Users\\Nati\\Downloads\\DAW\\PROYECTO_LENGUAJE_MARCAS\\PROYECTO_LENGUAJE_MARCAS\\PROYECTO.csproj",
+        "packagesPath": "C:\\Users\\Nati\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Nati\\Downloads\\DAW\\PROYECTO_LENGUAJE_MARCAS\\PROYECTO_LENGUAJE_MARCAS\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Natalia\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Nati\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -67,7 +67,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

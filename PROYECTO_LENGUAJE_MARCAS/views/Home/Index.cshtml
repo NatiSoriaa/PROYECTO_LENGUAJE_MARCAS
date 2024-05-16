@@ -13,10 +13,27 @@
         <p>@country.bbox.north</p>
         <p>@country.bbox.west</p>
     } *@
-    @foreach (var root in Model){
-        
-        <p>@root.count</p>
-        <p>@root.data[0].app_temp</p>
-    
+   
+
+    @if (Model != null && Model.Count > 0 && Model[0].data != null)
+    {
+        foreach (var datum in Model[0].data)
+        {
+            <p>@datum.precip</p>
+            <p>@datum.temp</p>
+            <p>@datum.timezone</p>
+            <p>@datum.lat</p>
+            <p>@datum.city_name</p>
+            <p>@datum.lon</p>
+
+        }
     }
+    else
+    {
+        <p>No se encontraron datos de clima.</p>
+    }
+    
+    
+    
+    
 </div>

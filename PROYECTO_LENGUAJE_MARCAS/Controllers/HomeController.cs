@@ -25,10 +25,10 @@ public class HomeController : Controller
     public IActionResult Weather(string id="625144")
     {
         var urlApiCountry = $"http://api.geonames.org/getJSON?geonameId={id}&username=nagasa";
-        HttpResponseMessage responseWeather = _httpClient.GetAsync(urlApiCountry).Result;
+        HttpResponseMessage responseCountry = _httpClient.GetAsync(urlApiCountry).Result;
         
-        string jsonResponseWeather = responseWeather.Content.ReadAsStringAsync().Result;
-        Country informationCountry = JsonConvert.DeserializeObject<Country> (jsonResponse);
+        string jsonResponseCountry = responseCountry.Content.ReadAsStringAsync().Result;
+        Country informationCountry = JsonConvert.DeserializeObject<Country>(jsonResponseCountry);
 
         List<string> geocode = new List<string>();
         string latitud=informationCountry.lat;
@@ -38,12 +38,12 @@ public class HomeController : Controller
         geocode.Add(longitud);
         geocode.Add(name);
 
-        HttpClient client=new HttpClient();
-        HttpResponseMessage response = client.GetAsync($"https://www.meteosource.com/api/v1/free/point?lat={geocode[0]}&lon={geocode[1]}&sections=current%2Chourly&language=en&units=auto&key=v68hqhyj2ams6xe0uxv7s8wkn2386rtg963o2ye8").Result;
+        var urlApiWeather=$"https://www.meteosource.com/api/v1/free/point?lat={geocode[0]}&lon={geocode[1]}&sections=current%2Chourly&language=en&units=auto&key=v68hqhyj2ams6xe0uxv7s8wkn2386rtg963o2ye8";
+        HttpResponseMessage responseWeather = _httpClient.GetAsync(urlApiWeather).Result;
 
-        string jsonResponse = response.Content.ReadAsStringAsync().Result;
+        string jsonResponseWeather = responseWeather.Content.ReadAsStringAsync().Result;
 
-        Weather informationWeather = JsonConvert.DeserializeObject<Weather> (jsonResponse);
+        Weather informationWeather = JsonConvert.DeserializeObject<Weather>(jsonResponseWeather);
 
         informationWeather.countryName=geocode[2];
 

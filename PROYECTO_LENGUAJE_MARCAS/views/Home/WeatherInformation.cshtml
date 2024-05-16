@@ -1,0 +1,11 @@
+﻿@{
+    ViewData["Title"] = "Home";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+     @foreach (var geolocalization in Model){
+        <p>@geolocalization.lng</p>
+        <p>@geolocalization.geonameId</p>
+    }
+</div>

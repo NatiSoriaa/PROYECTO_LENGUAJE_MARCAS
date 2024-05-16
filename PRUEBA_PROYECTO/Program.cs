@@ -18,63 +18,155 @@ internal partial class Program
     }
 
     // // ESTRUCTURA API TIEMPO
-    public class CloudCover
+      public class CurrentConditions
     {
-        public int total { get; set; }
-    }
-
-    public class Current
-    {
+        public string datetime { get; set; }
+        public long datetimeEpoch { get; set; }
+        public double temp { get; set; }
+        public double feelslike { get; set; }
+        public double humidity { get; set; }
+        public double dew { get; set; }
+        public object precip { get; set; }
+        public double precipprob { get; set; }
+        public double snow { get; set; }
+        public double snowdepth { get; set; }
+        public object preciptype { get; set; }
+        public object windgust { get; set; }
+        public double windspeed { get; set; }
+        public double winddir { get; set; }
+        public double pressure { get; set; }
+        public double visibility { get; set; }
+        public double cloudcover { get; set; }
+        public double solarradiation { get; set; }
+        public double solarenergy { get; set; }
+        public double uvindex { get; set; }
+        public string conditions { get; set; }
         public string icon { get; set; }
-        public int icon_num { get; set; }
-        public string summary { get; set; } 
-        public double temperature { get; set; }
-        public Wind wind { get; set; }
-        public Precipitation precipitation { get; set; }
-        public int cloud_cover { get; set; }
+        public List<string> stations { get; set; }
+        public string source { get; set; }
+        public string sunrise { get; set; }
+        public double sunriseEpoch { get; set; }
+        public string sunset { get; set; }
+        public double sunsetEpoch { get; set; }
+        public double moonphase { get; set; }
     }
 
-    public class Datum
+    public class Day
     {
-        public DateTime date { get; set; }
-        public string weather { get; set; }
-        public int icon { get; set; }
-        public string summary { get; set; }
-        public double temperature { get; set; }
-        public Wind wind { get; set; }
-        public CloudCover cloud_cover { get; set; }
-        public Precipitation precipitation { get; set; }
+        public string datetime { get; set; }
+        public long datetimeEpoch { get; set; }
+        public double tempmax { get; set; }
+        public double tempmin { get; set; }
+        public double temp { get; set; }
+        public double feelslikemax { get; set; }
+        public double feelslikemin { get; set; }
+        public double feelslike { get; set; }
+        public double dew { get; set; }
+        public double humidity { get; set; }
+        public double precip { get; set; }
+        public double precipprob { get; set; }
+        public double precipcover { get; set; }
+        public List<string> preciptype { get; set; }
+        public double snow { get; set; }
+        public double snowdepth { get; set; }
+        public double windgust { get; set; }
+        public double windspeed { get; set; }
+        public double winddir { get; set; }
+        public double pressure { get; set; }
+        public double cloudcover { get; set; }
+        public double visibility { get; set; }
+        public double solarradiation { get; set; }
+        public double solarenergy { get; set; }
+        public double uvindex { get; set; }
+        public double severerisk { get; set; }
+        public string sunrise { get; set; }
+        public double sunriseEpoch { get; set; }
+        public string sunset { get; set; }
+        public double sunsetEpoch { get; set; }
+        public double moonphase { get; set; }
+        public string conditions { get; set; }
+        public string description { get; set; }
+        public string icon { get; set; }
+        public List<string> stations { get; set; }
+        public string source { get; set; }
+        public List<Hour> hours { get; set; }
     }
 
-    public class Hourly
+    public class Hour
     {
-        public List<Datum> data { get; set; }
+        public string datetime { get; set; }
+        public long datetimeEpoch { get; set; }
+        public double temp { get; set; }
+        public double feelslike { get; set; }
+        public double humidity { get; set; }
+        public double dew { get; set; }
+        public double precip { get; set; }
+        public double precipprob { get; set; }
+        public double snow { get; set; }
+        public double snowdepth { get; set; }
+        public List<string> preciptype { get; set; }
+        public double windgust { get; set; }
+        public double windspeed { get; set; }
+        public double winddir { get; set; }
+        public double pressure { get; set; }
+        public double visibility { get; set; }
+        public double cloudcover { get; set; }
+        public double solarradiation { get; set; }
+        public double solarenergy { get; set; }
+        public double uvindex { get; set; }
+        public double severerisk { get; set; }
+        public string conditions { get; set; }
+        public string icon { get; set; }
+        public object stations { get; set; }
+        public string source { get; set; }
     }
 
-    public class Precipitation
+    public class LATI
     {
-        public double total { get; set; }
-        public string type { get; set; }
+        public double distance { get; set; }
+        public double latitude { get; set; }
+        public double longitude { get; set; }
+        public double useCount { get; set; }
+        public string id { get; set; }
+        public string name { get; set; }
+        public double quality { get; set; }
+        public int contribution { get; set; }
+    }
+
+    public class LWOH
+    {
+        public int distance { get; set; }
+        public double latitude { get; set; }
+        public double longitude { get; set; }
+        public double useCount { get; set; }
+        public string id { get; set; }
+        public string name { get; set; }
+        public double quality { get; set; }
+        public double contribution { get; set; }
+    }
+     public class Stations
+    {
+        public LATI LATI { get; set; }
+        public LWOH LWOH { get; set; }
     }
 
     public class Weather
     {
-        public string lat { get; set; }
-        public string lon { get; set; }
-        public int elevation { get; set; }
+    
+        public double queryCost { get; set; }
+        public double latitude { get; set; }
+        public double longitude { get; set; }
+        public string resolvedAddress { get; set; }
+        public string address { get; set; }
         public string timezone { get; set; }
-        public string units { get; set; } 
-        public Current current { get; set; }
-        public Hourly hourly { get; set; } 
-        public object daily { get; set; }
+        public double tzoffset { get; set; }
+        public string description { get; set; }
+        public List<Day> days { get; set; }
+        public List<object> alerts { get; set; }
+        public Stations stations { get; set; }
+        public CurrentConditions currentConditions { get; set; }
     }
 
-    public class Wind
-    {
-        public double speed { get; set; }
-        public int angle { get; set; }
-        public string dir { get; set; }
-    }
 
     // // ESTRUCTURA API COUNTRY
     public class AdminCodes1
@@ -172,7 +264,7 @@ internal partial class Program
 
     static void WeatherInformation(List<string> geocode){
         HttpClient client=new HttpClient();
-        HttpResponseMessage response = client.GetAsync($"https://www.meteosource.com/api/v1/free/point?lat={geocode[0]}&lon={geocode[1]}&sections=current%2Chourly&language=en&units=auto&key=v68hqhyj2ams6xe0uxv7s8wkn2386rtg963o2ye8").Result;
+        HttpResponseMessage response = client.GetAsync($"https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/{geocode[0]}%2C{geocode[1]}?unitGroup=metric&key=YVCJTVDMWHRJA62SDCUWP6GZQ&contentType=json").Result;
 
         string jsonResponse = response.Content.ReadAsStringAsync().Result;
 

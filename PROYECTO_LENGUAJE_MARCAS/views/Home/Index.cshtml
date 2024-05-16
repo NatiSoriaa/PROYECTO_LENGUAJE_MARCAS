@@ -4,9 +4,19 @@
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-    @foreach (var country in Model){
+    @* @foreach (var country in Model){
         <p>@country.countryName</p>
-        <p>@country.capitalCountry</p>
+        <p>@country.lat</p>
+        <p>@country.population</p>
+        <p>@country.bbox.east</p>
+        <p>@country.bbox.south</p>
+        <p>@country.bbox.north</p>
+        <p>@country.bbox.west</p>
+    } *@
+    @foreach (var root in Model){
+        
+        <p>@root.count</p>
+        <p>@root.data[0].app_temp</p>
+    
     }
 </div>

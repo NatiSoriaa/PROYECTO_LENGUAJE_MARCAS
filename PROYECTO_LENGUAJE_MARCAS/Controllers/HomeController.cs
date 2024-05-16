@@ -20,7 +20,7 @@ public class HomeController : Controller
     {
         
 
-        var urlApiCountry = $"http://api.geonames.org/getJSON?geonameId={id}&username=nagasa";
+        var urlApiCountry = $"http://api.geonames.org/getJSON?geonameId=6252001&username=nagasa";
         var clientCountry = new HttpClient();
         var responseCountry = clientCountry.GetAsync(urlApiCountry).Result;
         var contentCountry=responseCountry.Content.ReadAsStringAsync().Result;
@@ -33,7 +33,7 @@ public class HomeController : Controller
         double latitude2=35.7721;
 
 
-        var urlApiWeather=$"https://api.weatherbit.io/v2.0/current?lat={latitude2}&lon={longitude2}&key=b594f4848b42479cb1d61d4283ff8793&include=minutely";
+        var urlApiWeather=$"https://api.weatherbit.io/v2.0/current?lat=78.63861&lon=78.63861&key=b594f4848b42479cb1d61d4283ff8793&include=minutely";
         var clientWeather= new HttpClient();
         var responseWeather=clientWeather.GetAsync(urlApiWeather).Result;
         var contentWeather=responseWeather.Content.ReadAsStringAsync().Result;

@@ -16,49 +16,24 @@ public class HomeController : Controller
         _logger = logger;
     }
 
-    public IActionResult Index(string id="6252001")
+    public IActionResult Index()
     {
         
-
-        var urlApiCountry = $"http://api.geonames.org/getJSON?geonameId=6252001&username=nagasa";
-        var clientCountry = new HttpClient();
-        var responseCountry = clientCountry.GetAsync(urlApiCountry).Result;
-        var contentCountry=responseCountry.Content.ReadAsStringAsync().Result;
-        var informationCountry = JsonSerializer.Deserialize<ApiCountry.Country>(contentCountry);
+        List<CountriesID> countriesIDs=CreateCountrysList();
         
-        var countryList = new List<ApiCountry.Country>{informationCountry};
-        // double longitude=Convert.ToDouble(countryList[0].lat);
-        // double latitude=Convert.ToDouble(countryList[0].lng);
-        // double longitude2=-78.63861;
-        // double latitude2=35.7721;
+        return View(countriesIDs);
+    }
 
+    public struct CountriesID{
+        public string countryName;
+        public string capitalCountry;
 
-        var urlApiWeather=$"https://api.weatherbit.io/v2.0/current?lat={countryList[0].lat}&lon={countryList[0].lng}&key=b594f4848b42479cb1d61d4283ff8793&include=minutely";
-        var clientWeather= new HttpClient();
-        var responseWeather=clientWeather.GetAsync(urlApiWeather).Result;
-        var contentWeather=responseWeather.Content.ReadAsStringAsync().Result;
-        
-        var informationWeather = JsonSerializer.Deserialize<ApiWeather.Root>(contentWeather);
-
-        var listInformationWeather = new List<ApiWeather.Root>{informationWeather};
-
-        
-        
-        
-        if (listInformationWeather != null)
-        {
-            return View(listInformationWeather);
-        }
-        else
-        {
-            return View("no hay datos");
-        }
-
-       
-        
-
-
-        // List <CountriesID> countriesIDs= new List <CountriesID> ()
+        public string urlImagen;
+        public string urlCityImage;
+        public int id;
+    }
+    static List <CountriesID> CreateCountrysList(){
+        List <CountriesID> countriesIDs= new List <CountriesID> ()
         {
         new CountriesID {countryName="Albania",capitalCountry="Tirana",urlImagen="", urlCityImage="", id=3183875},
         new CountriesID {countryName="Germany",capitalCountry="Berlín",urlImagen="",urlCityImage="",id=2950159},
@@ -111,44 +86,48 @@ public class HomeController : Controller
         new CountriesID {countryName="United Kingdom",capitalCountry="London",urlImagen="",urlCityImage="",id=2643743},
         new CountriesID {countryName="Vatican City",capitalCountry="Vatican City",urlImagen="",urlCityImage="",id=6691831}
         };
-        //  return View(countriesIDs);
-    }
-    public struct CountriesID{
-        public string countryName;
-        public string capitalCountry;
 
-        public string urlImagen;
-        public int id;
+        return countriesIDs;
+
     }
 
-    // public IActionResult WeatherInformation(string id="3183875"){
-
-    //     var urlApiCountry = $"http://api.geonames.org/getJSON?geonameId={id}&username=nagasa";
-    //     var clientCountry = new HttpClient();
-    //     var responseCountry = clientCountry.GetAsync(urlApiCountry).Result;
-    //     var contentCountry=responseCountry.Content.ReadAsStringAsync().Result;
-    //     List<ApiCountry.Country> informationCountry = JsonSerializer.Deserialize<List<ApiCountry.Country>>(contentCountry);
-        
-    //     return View(informationCountry);
-
-        // var geocode = new List<string>();
-        // string latitud=informationCountry[0].lat;
-        // string longitud=informationCountry[0].lng;
-        // string name=informationCountry[0].countryName;
-        // geocode.Add(latitud);
-        // geocode.Add(longitud);
-        // geocode.Add(name);
-
-        // var urlApiWeather=$"https://www.meteosource.com/api/v1/free/point?lat={geocode[0]}&lon={geocode[1]}&sections=current%2Chourly&language=en&units=auto&key=v68hqhyj2ams6xe0uxv7s8wkn2386rtg963o2ye8";
-        // var clientWeather= new HttpClient();
-        // var responseWeather=clientWeather.GetAsync(urlApiWeather).Result;
-        // var contentWeather=responseWeather.Content.ReadAsStringAsync().Result;
-        // List<ApiWeather.Weather> informationWeather = JsonSerializer.Deserialize<List<ApiWeather.Weather>>(contentWeather);
-
-        // informationWeather[0].countryName=geocode[2];
+    public IActionResult WeatherInformation(string id){
 
         
-        // return View(informationCountry);
+        var urlApiCountry = $"http://api.geonames.org/getJSON?geonameId={id}&username=nagasa";
+        var clientCountry = new HttpClient();
+        var responseCountry = clientCountry.GetAsync(urlApiCountry).Result;
+        var contentCountry=responseCountry.Content.ReadAsStringAsync().Result;
+        var informationCountry = JsonSerializer.Deserialize<ApiCountry.Country>(contentCountry);
+        
+        var countryList = new List<ApiCountry.Country>{informationCountry};
+
+
+
+        var urlApiWeather=$"https://api.weatherbit.io/v2.0/current?lat={countryList[0].lat}&lon={countryList[0].lng}&key=b594f4848b42479cb1d61d4283ff8793&include=minutely";
+        var clientWeather= new HttpClient();
+        var responseWeather=clientWeather.GetAsync(urlApiWeather).Result;
+        var contentWeather=responseWeather.Content.ReadAsStringAsync().Result;
+        
+        var informationWeather = JsonSerializer.Deserialize<ApiWeather.Root>(contentWeather);
+
+        var listInformationWeather = new List<ApiWeather.Root>{informationWeather};
+
+        
+        
+        
+        if (listInformationWeather != null)
+        {
+            return View(listInformationWeather);
+        }
+        else
+        {
+            return View("no hay datos");
+        }
+
+    }
+
+
     
     
 

@@ -2,10 +2,21 @@
     ViewData["Title"] = "Home";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-     @foreach (var geolocalization in Model){
-        <p>@geolocalization.lng</p>
-        <p>@geolocalization.geonameId</p>
+ @if (Model != null && Model.Count > 0 && Model[0].data != null)
+    {
+        foreach (var datum in Model[0].data)
+        {
+            <p>@datum.precip</p>
+            <p>@datum.temp</p>
+            <p>@datum.timezone</p>
+            <p>@datum.lat</p>
+            <p>@datum.city_name</p>
+            <p>@datum.lon</p>
+
+        }
     }
-</div>
+    else
+    {
+        <p>No se encontraron datos de clima.</p>
+    }
+    

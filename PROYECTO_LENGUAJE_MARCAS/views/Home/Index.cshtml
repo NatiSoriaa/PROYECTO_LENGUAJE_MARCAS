@@ -2,37 +2,13 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    @* @foreach (var country in Model){
-        <p>@country.countryName</p>
-        <p>@country.lat</p>
-        <p>@country.population</p>
-        <p>@country.bbox.east</p>
-        <p>@country.bbox.south</p>
-        <p>@country.bbox.north</p>
-        <p>@country.bbox.west</p>
-    } *@
-   
-
-    @if (Model != null && Model.Count > 0 && Model[0].data != null)
+    @foreach (var country in Model)
     {
-        foreach (var datum in Model[0].data)
-        {
-            <p>@datum.precip</p>
-            <p>@datum.temp</p>
-            <p>@datum.timezone</p>
-            <p>@datum.lat</p>
-            <p>@datum.city_name</p>
-            <p>@datum.lon</p>
-
-        }
+        <div style='background=url(@country.urlImagen)'>
+            <p>@country.capitalCountry</p>
+            <p>@country.countryName</p>
+        </div>
     }
-    else
-    {
-        <p>No se encontraron datos de clima.</p>
-    }
-    
     
     
     
